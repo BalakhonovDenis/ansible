@@ -1,2 +1,2 @@
-ansible_user                 : ubuntu
-ansible_ssh_private_key_file : /home/sined/.ssh/ubuntu-key.pem
+ansible_user: ubuntu
+#ansible_ssh_private_key_file : /home/sined/.ssh/ubuntu-key.pem
