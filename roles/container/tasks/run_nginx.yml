@@ -1,0 +1,10 @@
+---
+- name: nginx_start
+  docker_container:
+    name: nginx
+    image: "{{ nginx_image }}"
+    state: started
+    networks:
+      - name: my_network
+    ports:
+      - "80:80"

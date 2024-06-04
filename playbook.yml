@@ -1,0 +1,8 @@
+---
+- name: Install Docker and run container on Ubuntu and Amazon Linux
+  hosts: all
+  become: true
+  roles:
+    - docker
+    - container
+  #  - create_user

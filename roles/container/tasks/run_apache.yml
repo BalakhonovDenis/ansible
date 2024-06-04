@@ -1,0 +1,9 @@
+---
+- name: apache_start
+  docker_container:
+    name: apaches
+    image: "{{ apache_image }}"
+    state: started
+    networks:
+      - name: my_network
+      

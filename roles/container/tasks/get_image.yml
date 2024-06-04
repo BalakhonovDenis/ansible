@@ -1,0 +1,10 @@
+---
+- name: Pull Docker image from GitHub Container Registry
+  docker_image:
+    name: ghcr.io/balakhonovdenis/docker_images:a1
+    source: pull
+
+- name: Pull Docker image from GitHub Container Registry
+  docker_image:
+    name: ghcr.io/balakhonovdenis/docker_images:n2
+    source: pull

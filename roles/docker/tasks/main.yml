@@ -1,0 +1,10 @@
+---
+# tasks file for docker
+- name: Install Docker on Ubuntu
+  include_tasks: install_on_ubuntu.yml
+  when: ansible_os_family == "Debian"
+
+- name: Install Docker on Amazon Linux
+  include_tasks: install_on_amazon.yml
+  when: ansible_os_family == "RedHat"
+

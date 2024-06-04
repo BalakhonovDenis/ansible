@@ -1,0 +1,5 @@
+---
+# vars file for container
+
+nginx_image: ghcr.io/balakhonovdenis/docker_images:n2
+apache_image: ghcr.io/balakhonovdenis/docker_images:a1

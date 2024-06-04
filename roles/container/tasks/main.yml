@@ -1,0 +1,11 @@
+- name: Create docker network
+  include_tasks: create_docker_network.yml
+
+- name: Download image
+  include_tasks: get_image.yml
+
+- name: Run Docker container Apache
+  include_tasks: run_apache.yml
+
+- name: Run Docker container Nginx
+  include_tasks: run_nginx.yml
