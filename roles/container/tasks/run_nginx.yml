@@ -8,4 +8,3 @@
       - name: my_network
     ports:
       - "80:80"
-    api_version: "1.41"

@@ -6,5 +6,4 @@
     state: started
     networks:
       - name: my_network
-    api_version: '1.41'
       
