@@ -1,3 +1,7 @@
+- name: del docker network
+  include_tasks: del_network.yml
+
+
 - name: Create docker network
   include_tasks: create_docker_network.yml
 
