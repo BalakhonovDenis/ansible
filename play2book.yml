@@ -1,0 +1,10 @@
+- name: Example Simple Playbook
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Add the user 'bob' with a specific uid
+      ansible.builtin.user:
+        name: bob
+        state: present
+        uid: 1040
