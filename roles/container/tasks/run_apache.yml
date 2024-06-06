@@ -1,9 +1,17 @@
 ---
 - name: apache_start
-  docker_container:
-    name: apaches
-    image: "{{ apache_image }}"
-    state: started
-    networks:
-      - name: my_network
+  command: docker run -d --name apaches --net my_network den0303/apache_testy:latest
+
+  
+  
+  
+  
+  
+  
+  #docker_container:
+  # name: apaches
+  #  image: "{{ apache_image }}"
+  #  state: started
+  #  networks:
+  #    - name: my_network
       

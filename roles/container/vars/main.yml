@@ -1,5 +1,5 @@
 ---
 # vars file for container
 
-nginx_image: ghcr.io/balakhonovdenis/docker_images:n2
-apache_image: ghcr.io/balakhonovdenis/docker_images:a1
+nginx_image: den0303/nginx_testy:latest
+apache_image: den0303/apache_testy:latest

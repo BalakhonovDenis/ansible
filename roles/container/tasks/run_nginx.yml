@@ -1,10 +1,12 @@
 ---
 - name: nginx_start
-  docker_container:
-    name: nginx
-    image: "{{ nginx_image }}"
-    state: started
-    networks:
-      - name: my_network
-    ports:
-      - "80:80"
+  command: docker run -d --name nginx --net my_network -p 80:80 den0303/nginx_testy:latest
+
+  #docker_container:
+  #  name: nginx
+  #  image: "{{ nginx_image }}"
+  #  state: started
+  #  networks:
+  #    - name: my_network
+  #  ports:
+  #    - "80:80"

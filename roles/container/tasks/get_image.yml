@@ -1,12 +1,21 @@
 ---
 - name: Pull Docker image from GitHub Container Registry
-  docker_image:
-    name: den0303/nginx_testy:latest
-    source: pull
+  command: docker pull den0303/nginx_testy:latest
+  
+  
+  #docker_image:
+  #  name: den0303/nginx_testy:latest
+  #  source: pull
 
 
 - name: Pull Docker image from GitHub Container Registry
-  docker_image:
-    name: den0303/apache_testy:latest
-    source: pull
+  command: den0303/apache_testy:latest
+  
+  
+  
+  
+  
+  #docker_image:
+  #  name: den0303/apache_testy:latest
+  #  source: pull
 
