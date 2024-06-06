@@ -1,4 +1,5 @@
 - name: Create Docker network
+  command: docker network rm my_network
   command: docker network create my_network
   
   
