@@ -2,3 +2,4 @@
   docker_network:
     name: my_network
     state: present
+    api_version: '1.41'
