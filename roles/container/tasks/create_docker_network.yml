@@ -1,5 +1,5 @@
 - name: Create Docker network
-  command: docker stop nginx apaches && docker rm nginx apaches && docker network rm my_network && docker network create my_network
+  command: docker stop nginx apaches && docker docker system prune && docker network rm my_network && docker network create my_network
 
   #docker_network:
   #  name: my_network
