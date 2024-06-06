@@ -1,2 +1,2 @@
 - name: del Docker network
-  command: docker stop nginx apaches && docker rm nginx apaches
+  command: docker rm nginx apaches
