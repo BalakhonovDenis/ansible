@@ -23,7 +23,7 @@ pipeline {
                     docker image prune -af
                     cd /home/ubuntu/jenkins/workspace/ansible/nginx/
                     docker build -t den0303/nginx_testy:${buildTag} .
-                    cd ../APACHE/
+                    cd ../apache/
                     docker build -t den0303/apache_testy:${buildTag} .
                     """
                 }
