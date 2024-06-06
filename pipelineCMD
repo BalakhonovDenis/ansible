@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    
+    stages{
+        stage("get git"){
+            steps{
+                git branch: 'main', credentialsId: 'MASTERx', url: 'git@github.com:BalakhonovDenis/ansible.git'
+            }
+        }
+        stage("ansible"){
+            steps{
+                sh '''
+                pwd
+                ls -la
+                docker ps
+                '''
+                ansiblePlaybook credentialsId: 'slave1-credo', disableHostKeyChecking: true, installation: 'Ansible-test', inventory: 'hosts.txt', playbook: 'playbook.yml', vaultTmpPath: ''
+            }
+        }
+
+    }
+}

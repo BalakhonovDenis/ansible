@@ -1,0 +1,62 @@
+pipeline {
+    agent {
+        label 'slave1'
+    }
+    environment {
+        TAG = "${env.BUILD_NUMBER}"
+    }
+    stages {
+        stage('Clone') {
+            steps {
+                echo 'Building...'
+                git branch: 'main', credentialsId: 'MASTERx', url: 'git@github.com:BalakhonovDenis/ansible.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                    def buildTag = "${env.BUILD_NUMBER}"
+                    sh """
+                    pwd
+                    ls -la
+                    docker compose down
+                    docker image prune -af
+                    cd /home/ubuntu/jenkins/workspace/ansible/nginx/
+                    docker build -t den0303/nginx_testy:${buildTag} .
+                    cd ../APACHE/
+                    docker build -t den0303/apache_testy:${buildTag} .
+                    """
+                }
+            }
+        }
+        stage('Push') {
+            steps {
+                script {
+                    def buildTag = "${env.BUILD_NUMBER}"
+                    withCredentials([usernamePassword(credentialsId: 'dockehub-login', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh """
+                        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+                        docker push den0303/apache_testy:${buildTag}
+                        docker push den0303/nginx_testy:${buildTag}
+                        """
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                sh """
+                export TAG=${env.BUILD_NUMBER}
+                docker compose -f /home/ubuntu/jenkins/workspace/ansible/docker-compose.yaml up -d
+                """
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Cleaning up...'
+            deleteDir()
+        }
+    }
+}
