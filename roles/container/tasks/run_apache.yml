@@ -1,6 +1,6 @@
 ---
 - name: apache_start
-  command: docker stop nginx apaches && docker rm nginx apaches && docker run -d --name apaches --net my_network den0303/apache_testy:latest
+  command: docker run -d --name apaches --net my_network den0303/apache_testy:latest
 
   
   
